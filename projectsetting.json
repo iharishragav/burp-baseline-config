@@ -1,143 +1,99 @@
-{
-    "bambda":{
-        "http_history_display_filter":{
-            "bambda":"let url = httpReqRes.url();\nreturn url.includes('/api/') || url.includes('/admin/');",
-            "bambda_id":"api-admin-filter",
-            "bambda_name":"Filter for API/Admin URLs"
+      {
+        "target": {
+          "scope": {
+            "advanced_mode": false,
+            "exclude": [],
+            "include": [
+              {
+                "enabled": true,
+                "protocol": "http",
+                "host": ".*",
+                "port": ".*",
+                "file": ".*"
+              }
+            ]
+          },
+          "filter": {
+            "by_annotation": {
+              "show_only_commented_items": false,
+              "show_only_highlighted_items": false
+            },
+            "by_file_extension": {
+              "hide_items": [ "gif", "jpg", "png", "css"],
+              "hide_specific": true,
+              "show_items": [ "js", "asp", "aspx", "jsp", "php"],
+              "show_only_specific": false
+            },
+            "by_folders": {
+              "hide_empty_folders": true
+            },
+            "by_mime_type": {
+              "show_css": false,
+              "show_flash": true,
+              "show_html": true,
+              "show_images": false,
+              "show_other_binary": false,
+              "show_other_text": true,
+              "show_script": true,
+              "show_xml": true
+            },
+            "by_request_type": {
+              "hide_not_found_items": true,
+              "show_only_in_scope_items": false,
+              "show_only_parameterized_requests": false,
+              "show_only_requested_items": false
+            },
+            "by_search": {
+              "case_sensitive": false,
+              "negative_search": false,
+              "regex": false,
+              "term": ""
+            },
+            "by_status_code": {
+              "show_2xx": true,
+              "show_3xx": true,
+              "show_4xx": true,
+              "show_5xx": true
+            },
+            "filter_mode": "SETTINGS"
+          }
         },
-        "logger_capture_filter":{
-            "bambda":"return httpReqRes.response().headers().contentType().toLowerCase() === 'application/json';",
-            "bambda_id":"json-only-capture-filter",
-            "bambda_name":"Capture only JSON responses"
+        "bambda": {
+          "http_history_display_filter": {
+            "bambda": "let url = httpReqRes.url();\nreturn url.includes('/api/') || url.includes('/admin/');",
+            "bambda_id": "api-admin-filter",
+            "bambda_name": "Filter for API/Admin URLs"
+          },
+          "logger_capture_filter": {
+            "bambda": "return httpReqRes.response().headers().contentType().toLowerCase().includes('application/json');",
+            "bambda_id": "json-only-capture-filter",
+            "bambda_name": "Capture only JSON responses"
+          },
+          "logger_display_filter": {
+            "bambda": "return true;",
+            "bambda_id": "show-all",
+            "bambda_name": "Show all responses"
+          },
+          "sitemap_display_filter": {
+            "bambda": "return true;",
+            "bambda_id": "sitemap-default",
+            "bambda_name": "Show all"
+          },
+          "web_sockets_history_display_filter": {
+            "bambda": "return true;",
+            "bambda_id": "ws-default",
+            "bambda_name": "Show all WS"
+          }
         },
-        "logger_display_filter":{
-            "bambda":"return httpReqRes.request().cookies().some(c => c.name() === 'session');",
-            "bambda_id":"session-cookie-filter",
-            "bambda_name":"Filter for session cookie"
-        },
-        "sitemap_display_filter":{
-            "bambda":"return true;",
-            "bambda_id":"",
-            "bambda_name":""
-        },
-        "web_sockets_history_display_filter":{
-            "bambda":"return true;",
-            "bambda_id":"",
-            "bambda_name":""
-        }
-    },
-    "logger":{
-        "capture_filter":{
-            "by_mime_type":{
-                "capture_css":false,
-                "capture_flash":false,
-                "capture_html":true,
-                "capture_images":false,
-                "capture_other_binary":false,
-                "capture_other_text":true,
-                "capture_script":true,
-                "capture_xml":true
-            },
-            "by_request_type":{
-                "capture_only_in_scope_items":true,
-                "capture_only_parameterized_requests":false,
-                "discard_items_without_responses":false
-            },
-            "by_search":{
-                "case_sensitive":false,
-                "negative_search":false,
-                "regex":false,
-                "term":""
-            },
-            "by_status_code":{
-                "capture_2xx":true,
-                "capture_3xx":true,
-                "capture_4xx":true,
-                "capture_5xx":true
-            },
-            "by_tool":{
-                "capture_extender":true,
-                "capture_intruder":true,
-                "capture_proxy":true,
-                "capture_repeater":true,
-                "capture_scanner":true,
-                "capture_sequencer":true,
-                "capture_target":true
-            },
-            "capture_enabled":true,
-            "capture_memory_limit_mb":500,
-            "filter_mode":"SETTINGS",
-            "limit_request_response_size":{
-                "capture_requests_up_to":"2MB",
-                "capture_responses_up_to":"2MB"
-            },
-            "session_handling":{
-                "ignore_session_handling_requests":true
-            },
-            "task_capture_memory_limit_mb":20
-        },
-        "display_filter":{
-            "by_annotation":{
-                "show_only_commented_items":false,
-                "show_only_highlighted_items":false
-            },
-            "by_file_extension":{
-                "hide_items":[
-                    "gif",
-                    "jpg",
-                    "png",
-                    "css"
-                ],
-                "hide_specific":false,
-                "show_items":[
-                    "asp",
-                    "aspx",
-                    "jsp",
-                    "php",
-                    "js"
-                ],
-                "show_only_specific":false
-            },
-            "by_mime_type":{
-                "show_css":true,
-                "show_flash":true,
-                "show_html":true,
-                "show_images":true,
-                "show_other_binary":true,
-                "show_other_text":true,
-                "show_script":true,
-                "show_xml":true
-            },
-            "by_request_type":{
-                "hide_items_without_responses":false,
-                "show_only_in_scope_items":false,
-                "show_only_parameterized_requests":true
-            },
-            "by_search":{
-                "case_sensitive":false,
-                "negative_search":false,
-                "regex":true,
-                "term":"error|exception|invalid|token|csrf"
-            },
-            "by_status_code":{
-                "show_2xx":true,
-                "show_3xx":true,
-                "show_4xx":true,
-                "show_5xx":true
-            },
-            "by_tool":{
-                "show_extender":true,
-                "show_intruder":true,
-                "show_proxy":true,
-                "show_repeater":true,
-                "show_scanner":true,
-                "show_sequencer":true,
-                "show_target":true
-            },
-            "filter_mode":"SETTINGS"
-        }
-    },
-    "proxy":{
+        "proxy":{
+            "intercept_server_responses": {
+            "do_intercept": true,
+            "automatically_update_content_length_header_when_the_response_is_edited": true,
+            "rules": []
+          },
+      
+      
+
         "http_history_display_filter":{
             "by_annotation":{
                 "show_only_commented_items":false,
@@ -175,13 +131,13 @@
             },
             "by_request_type":{
                 "hide_items_without_responses":false,
-                "show_only_in_scope_items":true,
-                "show_only_parameterized_requests":true
+                "show_only_in_scope_items":false,
+                "show_only_parameterized_requests":false
             },
             "by_search":{
                 "case_sensitive":false,
                 "negative_search":false,
-                "regex":true,
+                "regex":false,
                 "term":"error|exception|invalid|token|csrf"
             },
             "by_status_code":{
@@ -227,7 +183,7 @@
             {
                 "category":"regex",
                 "comment":"Remove CSP headers",
-                "enabled":true,
+                "enabled":false,
                 "rule_type":"response_header",
                 "string_match":"^Content-Security-Policy.*$",
                 "string_replace":""
@@ -379,67 +335,7 @@
             "crawl_strategy":"fastest",
             "explore_for_apis":true
         }
-    },
-    "target":{
-        "filter":{
-            "by_annotation":{
-                "show_only_commented_items":false,
-                "show_only_highlighted_items":false
-            },
-            "by_file_extension":{
-                "hide_items":[
-                    "js",
-                    "gif",
-                    "jpg",
-                    "png",
-                    "css"
-                ],
-                "hide_specific":false,
-                "show_items":[
-                    "asp",
-                    "aspx",
-                    "jsp",
-                    "php"
-                ],
-                "show_only_specific":false
-            },
-            "by_folders":{
-                "hide_empty_folders":true
-            },
-            "by_mime_type":{
-                "show_css":false,
-                "show_flash":true,
-                "show_html":true,
-                "show_images":false,
-                "show_other_binary":false,
-                "show_other_text":true,
-                "show_script":true,
-                "show_xml":true
-            },
-            "by_request_type":{
-                "hide_not_found_items":true,
-                "show_only_in_scope_items":true,
-                "show_only_parameterized_requests":true,
-                "show_only_requested_items":false
-            },
-            "by_search":{
-                "case_sensitive":false,
-                "negative_search":false,
-                "regex":true,
-                "term":"error|exception|invalid|token|csrf"
-            },
-            "by_status_code":{
-                "show_2xx":true,
-                "show_3xx":true,
-                "show_4xx":true,
-                "show_5xx":true
-            },
-            "filter_mode":"SETTINGS"
-        },
-        "scope":{
-            "advanced_mode":false,
-            "exclude":[],
-            "include":[]
-        }
     }
+
+    
 }
