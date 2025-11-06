@@ -23,7 +23,7 @@ My goal was to make Burp less noisy and more focused. This isn't a super advance
 3.  Select **Project settings** > **Load project settings**.
 4.  Choose the file you just downloaded.
 5.  That's it! Your Burp project will now use these settings.
-
+6.  Don't forget to enable in-scope only option in proxy tab after adding item to scope
 ### This is Just a Starting Point!
 
 I'm still learning every day, and this configuration is what's helping me right now. It's definitely not the "perfect" or "most advanced" setup, but I think it's a great first step away from the defaults.
