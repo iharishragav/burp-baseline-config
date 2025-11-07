@@ -136,11 +136,19 @@
                 },
                 {
                     "action":"forward_intercepted_proxy_message",
+                    "hotkey":""
+                },
+                {
+                    "action":"forward_all_intercepted_proxy_messages",
                     "hotkey":"Ctrl+F"
                 },
                 {
                     "action":"toggle_proxy_interception",
                     "hotkey":"Ctrl+T"
+                },
+                {
+                    "action":"open_embedded_browser",
+                    "hotkey":"Ctrl+B"
                 },
                 {
                     "action":"issue_repeater_request",
@@ -236,11 +244,11 @@
                 },
                 {
                     "action":"editor_base64_decode",
-                    "hotkey":"Ctrl+Shift+B"
+                    "hotkey":""
                 },
                 {
                     "action":"editor_base64_encode",
-                    "hotkey":"Ctrl+B"
+                    "hotkey":""
                 },
                 {
                     "action":"editor_backspace_word",
